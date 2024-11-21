@@ -1,0 +1,46 @@
+<p>doscampos works!</p>
+
+<div class="container">
+    <div class="row">
+        <h1>Formulario</h1>
+      <div class="col-md-12">
+        <form [formGroup]="formularioForm" (ngSubmit)="enviarDatos()">
+            <div class="form-group">
+              <input type="text" class="form-control"  
+                formControlName="campo1" id="campo1" 
+                aria-describedby="nombrelHelp" 
+                placeholder="Ingrese un dato">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" 
+                formControlName="campo2" id="campo2" 
+                aria-describedby="apellidoHelp" 
+                placeholder="Ingrese un dato">
+            </div>
+            <button type="submit" class="btn btn-primary" >Enviar</button>
+          </form>
+      </div>
+    </div>
+  </div>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Campo1</th>
+        <th scope="col">Campo2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of registros">
+        <th scope="row">{{i["_id"]}}</th>
+        <td>{{i["campo1"]}}</td>
+        <td>{{i["campo2"]}}</td>
+        <!--
+        <th scope="row">{{i._id]}}</th>
+        <td>{{i?.campo1 }}</td>
+        <td>{{i.campo2 }}</td>  -->
+      </tr>
+    </tbody>
+  </table>
